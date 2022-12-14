@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+    <h1>Atualizando a sua formação</h1>
+
+        <label>Graduação</label>
+        <input type="text" id="graduacao" placeholder="adicione uma graduacao">
+        <br>
+        <label>Instituição</label>
+        <input type="text" id="instituicao" placeholder="Insira a instituição">
+        <br>
+        <label>Começo</label>
+        <input type="text" id="comeco" placeholder="Começo da graduação">
+        <br>
+        <label>Término</label>
+        <input type="text" id="termino" placeholder="Término da graduação">
+        <br>
+        <!--Cria o botao para avançar-->
+        <button class="btn-login" onclick="user.update()">Atualizar</button>
+
+</body>
+</html>
+
+<script>
+    const api  = 'http://127.0.0.1:3000';
+
+    var user = {
+
+        update() {
+
+            var graduacao = document.getElementById('graduacao').value;
+            var instituicao = document.getElementById('instituicao').value;
+            var comeco = document.getElementById('comeco').value;
+            var termino = document.getElementById('termino').value;
+            $.ajax({
+                type: 'POST',
+                url: api + '/atualizaFormacao',
+                data: { graduacao: graduacao, instituicao: instituicao, comeco: comeco, termino: termino},
+            }).done(function () {
+                // redireciona
+                alert('sucesso');
+            });
+        }
+    }
+  
+    let form = document.getElementById("formacao");
+            let forma = +window.location.search.replace('?','');
+            console.log(forma);
+            form.action = '/atualizaFormacao?id='+ forma;
+    
+</script>

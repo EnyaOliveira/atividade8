@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Insira uma Formação</h1>
+    <br>
+        <form name="form1" method="post" action="/inserirFormacao" class="textfield">
+            <label>Graduação</label>
+            <input type="text" name="graduacao" placeholder="adicione uma graduacao">
+            <br>
+            <label>Instituição</label>
+            <input type="text" name="descricao" placeholder="Insira a instituição">
+            <br>
+            <label>Começo</label>
+            <input type="text" name="comeco" placeholder="Começo da graduação">
+            <br>
+            <label>Término</label>
+            <input type="text" name="termino" placeholder="Término da graduação">
+            <br>
+            <!--Cria o botao para avançar-->
+            <button class="btn-login">Avançar</button>
+        </form>
+</body>
+</html>
+
+<!--<script>
+    const urlFormacao = "/insereformacao";
+    const divFormacao = document.getElementById("formacao");
+
+    fetch(urlFormacao)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let saida = '';
+            let formacao= data;
+            formacao.map(function (formacao) {
+                saida += '<h5 class="formacao">' + `${formacao.comeco}` +`${formacao.termino}` +`${formacao.instituicao}` + '</h5><h4 class="formacao">' + `${formacao.graduacao}` + '</h4><h4 class="formacao">' + '</h4><a href="/removerFormacao?id=' + `${formacao.id}` + '">Excluir</a> | <a href="\formacaoUpdate.html' + `${formacao.id}` + '">Editar</a><br><br>'
+            });
+            divFormacao.innerHTML = saida;
+        })
+</script>-->

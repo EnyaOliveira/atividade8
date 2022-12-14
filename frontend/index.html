@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Currículo</title>
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<div id="main" class="main">
+		<div id="top-section" class="top-section">
+			<img id="foto" src="Enya_Oliveira (16).JPG">
+			<p class="p1">ENYA <span>OLIVEIRA</span></p>
+			<p id="curso" class="p2">Cursando engenharia de Software</p>
+		</div>
+
+		<div class="col-div-4">
+			<div class="content-box" style="padding-left: 40px;">
+
+			<p class="head">Sobre mim</p>
+			<p class="p3">Telefone: (77)88888-8888</p>
+			<p class="p3">email: @email.com</p>
+			<p class="p3">Endereço: Rua AAA, 11, SP, Brasil</p>
+
+			<br/>
+			<p class="head">Skills</p>
+			<ul class="skills">
+				<li><span>HTML básico</span></li>
+				<li><span>CSS básico</span></li>
+				<li><span>JavaScript</span></li>
+				<li><span>GDScript intermediário</span></li>
+				<!--<button id="button4" class="button4"><a href="">Adicionar uma habilidade</a></button>-->
+
+			</ul>
+
+			<br/>
+
+			<p class="head">Idiomas</p>
+			<p class="p3">Português fluente/nativo</p>
+			<p class="p3">Inglês avançado/fluente</p>
+			<!--<button id="button3" class="button3"><a href="">Adicionar uma idioma</a></button>-->
+			</div>
+		</div>
+
+		<div class="line"></div>
+		<div class="col-div-8">
+			<div class="content-box">
+			<p class="head">Perfil</p>
+			<p class="p3" style="font-size: 14px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br/>
+
+Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+			<br/>
+			<p class="head">Experiência</p>
+
+			<p>LOREM IPSUM (2018 - ATUALMENTE)</p>
+			<p class="p-4">
+			<!--<button id="button2" class="button2"><a href="">Adicionar uma experiência</a></button>-->
+
+			<br/>
+
+			<p class="head">Graduação</p>
+		<div id="grad">
+			<p class="p-4" >BACHARELADO, 2015 - 2019</p>
+			<p class="p-4" >PÓS-GRADUAÇÃO, 2020 - atualmente</p>
+			<button id="button1" class="button1"><a href="formacao.html">Adicionar uma graduação</a></button><br>
+			<!--<button id="button1" class="button1"><a href="formacaoUpdate.html">Atualizar graduação</a></button>-->
+			<!--<div class="">-->
+		</div>
+
+			</div><br> 
+
+			<div id="clique">
+				<button onclick="taylor()">　Aperta o botão, por favor!　</button>
+				</div><br>
+
+				<!--<div class="novoCurso" id="novoCurso">
+					<button id="button1" class="button1"><a href="novoCurso.html">Adicionar curso</a></button>
+					<h2 class="titulo5">Cursos</h2>
+					<div class="skills" id="skills">-->
+	</div>
+		<br/>
+		<script>
+			$(document).ready(function(){
+				$("#foto").click(function(){
+					$("#foto").attr("src", "Image 2022-11-30 at 00.57.32.jpeg");
+				 });
+		
+				$("#curso").hover(function(){
+					$("#curso").hide();
+				 });
+			$("#top-section").dblclick(function(){
+				$(this).css("background-color", "#4682B4")
+			})
+			});
+
+	function taylor() {
+  		const xhttp = new XMLHttpRequest();
+  		xhttp.onload = function() {
+		document.getElementById("clique").innerHTML = this.responseText;
+  }
+  	xhttp.open("GET", "https://taylorswiftapi.onrender.com/get?song=");
+  	xhttp.send();
+}
+</script>
+<script>
+    const urlformacao = "/leiaformacao";
+    const divFormacao = document.getElementById("grad");
+
+        fetch(urlformacao)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let saida = '';
+                let formacao = data;
+                formacao.map(function (formacao) {
+                  saida += '<p class="p-4" >' + `${formacao.graduacao}`+',&nbsp'+ `${formacao.comeco}` +'-&nbsp'+ `${formacao.termino}` + '<br>' + '<button id="button1" class="button1"><a href="formacao.html">Adicionar uma graduação</a></button><br></button>'  
+                });
+                divFormacao.innerHTML = saida;
+            })
+
+
+	 </script>
+	 
+</body>
+</html>
